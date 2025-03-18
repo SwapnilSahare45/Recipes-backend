@@ -85,13 +85,12 @@ export const showAllRecipe = async (req, res) => {
 
 
 export const recipeById = async (req, res) => {
-    console.log(req.params.id);
     try {
-        const recipe = await Recipe.find({ _id: req.params.id });
+        const recipe = await Recipe.findById({ _id: req.params.id });
         if (!recipe) {
             res.status(400).json({ message: "No recipes found" });
         }
-        res.status(200).json({ recipe });
+        res.status(200).json(recipe);
     } catch (error) {
         res.status(500).json({
             message: "An error occured during fetching my recipes",

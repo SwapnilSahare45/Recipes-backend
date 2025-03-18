@@ -10,7 +10,7 @@ const upload = multer({ storage });
 
 router.post("/addRecipe", protectRoute, upload.single("recipeImage"), addRecipe);
 router.get("/allRecipes", protectRoute, showAllRecipe);
-router.get("/recipe/:id", protectRoute, recipeById);
+router.get("/recipeById/:id", protectRoute, recipeById);
 router.get("/myRecipes", protectRoute, myRecipes);
 router.get("/search/:key", protectRoute, searchRecipes);
 
