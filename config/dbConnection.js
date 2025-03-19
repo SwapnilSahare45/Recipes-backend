@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Connect to database
 export const dbConnect = async () => {
     try {
         // check the mogno url is present or not in the .env file

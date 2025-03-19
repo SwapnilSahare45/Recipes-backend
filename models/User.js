@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
+// User schema to validate user data
 const userSchema = mongoose.Schema(
     {
         firstName: {
@@ -63,6 +64,7 @@ userSchema.methods.comparePassword = async function (inputPassword) {
     return bcrypt.compare(inputPassword, this.password);
 };
 
+// User model based on user schema
 const User = mongoose.model("User", userSchema);
 
 export default User;

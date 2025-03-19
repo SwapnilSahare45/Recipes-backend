@@ -5,15 +5,21 @@ import cors from "cors";
 import userRoutes from "./routes/userRoutes.js";
 import recipeRouter from "./routes/recipeRoutes.js";
 
-// Creating server
+
+// Create instance of express to handle routes, middleware, http requests etc
 const app = express();
 
+// Configuration file to load environment variable
 dotenv.config();
 
+
+// Middleware to parse incoming requests with json payloads. Also used to handle json data
 app.use(express.json());
+
+// Cross-Origin Resource Sharing (CORS) middleware enables requests from different domains
 app.use(cors());
 
-// function to start server
+// Function to start server
 const startServer = async () => {
     try {
         await dbConnect();

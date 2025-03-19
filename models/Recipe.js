@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Recipe schema to validate recipe data
 const recipeSchema = mongoose.Schema(
     {
         recipeBy: {
@@ -80,6 +81,7 @@ const recipeSchema = mongoose.Schema(
     }
 );
 
+// Recipe model based on the recipe schema
 const Recipe = mongoose.model("Recipe", recipeSchema);
 
 export default Recipe;
