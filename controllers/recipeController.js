@@ -119,7 +119,6 @@ export const myRecipes = async (req, res) => {
         // Fetch the recipes by user id
         const myRecipes = await Recipe.find({ "recipeBy.userId": userId });
 
-        console.log(myRecipes)
         // Check the recipes available if not then return the error message to the user
         if (!myRecipes.length) {
             return res.status(400).json({ message: "No recipes found" });
