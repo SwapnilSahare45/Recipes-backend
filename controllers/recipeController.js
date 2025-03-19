@@ -114,10 +114,12 @@ export const recipeById = async (req, res) => {
 
 // Function to find recipes by user id
 export const myRecipes = async (req, res) => {
+    const userId= req.query.userId;
     try {
         // Fetch the recipes by user id
-        const myRecipes = await Recipe.find({ "recipeBy.userId": req.query.userId });
+        const myRecipes = await Recipe.find({ "recipeBy.userId": userId });
 
+        console.log(myRecipes)
         // Check the recipes available if not then return the error message to the user
         if (!myRecipes.length) {
             return res.status(400).json({ message: "No recipes found" });
